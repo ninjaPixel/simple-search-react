@@ -1,11 +1,12 @@
 import React from 'react';
-import { Alert, Row, Col, Panel, FormControl, Image } from 'react-bootstrap';
+import { Alert, Row, Col, Panel, FormControl, Image, Button } from 'react-bootstrap';
 
 class Movies extends React.Component {
   constructor(props) {
     super(props);
     this.state = { searchTerm: null };
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleNewsletterButtonClick = this.handleNewsletterButtonClick.bind(this);
   }
 
   handleSearch(event) {
@@ -13,10 +14,16 @@ class Movies extends React.Component {
     this.setState({ searchTerm });
     this.props.searchQuery.set(searchTerm);
   }
+  
+  handleNewsletterButtonClick(event){
+    analytics.track('Newsletter button clicked',{label:'Hello',value:'World!'});
+  }
 
   render() {
     const { movies } = this.props;
+    console.log('movies',movies)
     return (<div className="Movies">
+      <Button bsStyle="primary" onClick={this.handleNewsletterButtonClick} className="NewsletterButton">Sign up for our newsletter</Button>
       <div className="MovieSearch">
         <i className="fa fa-search" />
         <FormControl
@@ -27,8 +34,8 @@ class Movies extends React.Component {
         />
       </div>
       <div className="Movies-list">
-        { movies.length > 0 ? movies.map(({ title, year, rated, plot, poster }) => (
-          <Panel header={`${title} - ${year}`}>
+        { movies.length > 0 ? movies.map(({ title, year, rated, plot, poster, _id }) => (
+          <Panel key={_id} header={`${title} - ${year}`}>
             <Row>
               <Col xs={ 12 } sm={ 3 }>
                 <Image src={ poster } alt={ title } responsive />

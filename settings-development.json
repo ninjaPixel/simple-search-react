@@ -1,4 +1,11 @@
 {
-  "public": {},
+  "public": {
+    "astronomer": {
+      "appId": "visit astronomer.io for a free account",
+      "disableUserTracking": false,
+      "disableRouteTracking": false,
+      "disableMethodTracking": false
+    }
+  },
   "private": {}
 }
