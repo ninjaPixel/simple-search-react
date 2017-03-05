@@ -1,9 +1,9 @@
 {
   "public": {
     "astronomer": {
-      "appId": "visit astronomer.io for a free account",
+      "appId": "XXX",
       "disableUserTracking": false,
-      "disableRouteTracking": false,
+      "disableRouteTracking": true,
       "disableMethodTracking": false
     }
   },

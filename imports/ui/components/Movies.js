@@ -13,7 +13,7 @@ class Movies extends React.Component {
         const searchTerm = event.target.value;
         this.setState({searchTerm});
         this.props.searchQuery.set(searchTerm);
-        analytics.track('Search', {label: 'searchTerm', value: searchTerm});
+        analytics.track('Searched for', {value: searchTerm});
     }
     
     
